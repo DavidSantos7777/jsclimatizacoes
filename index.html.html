@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Climatização e Refrigeração | Itapipoca e Região</title>
+  <meta name="description" content="Especialista em instalação, manutenção, conserto e higienização de ar-condicionado e refrigeração em Itapipoca e região. Solicite seu orçamento no WhatsApp!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0b132b;
+      --bg-card: #1c2541;
+      --bg-lighter: #2a3a5e;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent-green: #22c55e;
+      --accent-green-hover: #16a34a;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: rgba(255, 255, 255, 0.1);
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 19, 43, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #00aeef, #0284c7);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      color: #fff;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    }
+
+    .logo-text span {
+      color: var(--primary);
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn-header {
+      background: var(--accent-green);
+      color: #fff !important;
+      padding: 0.6rem 1.3rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+    }
+
+    .btn-header:hover {
+      background: var(--accent-green-hover);
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--primary);
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
+      color: #ffffff;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #38bdf8, #00aeef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-green);
+      color: #fff;
+      padding: 1rem 1.8rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 8px 20px rgba(34, 197, 94, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-green-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 1rem 1.8rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .stat-card h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0;
+    }
+
+    .hero-card-preview {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+    }
+
+    .hero-card-preview::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: rgba(56, 189, 248, 0.15);
+      filter: blur(60px);
+      border-radius: 50%;
+    }
+
+    .card-quote {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid var(--primary);
+      padding: 1.2rem;
+      border-radius: 8px;
+      font-style: italic;
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: linear-gradient(90deg, #0284c7, #06b6d4);
+      color: #fff;
+      padding: 0.8rem 0;
+      font-weight: 600;
+      font-size: 0.95rem;
+      overflow: hidden;
+    }
+
+    .ticker-wrapper {
+      display: flex;
+      justify-content: space-around;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* SERVICES */
+    .services {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header span {
+      color: var(--primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+    }
+
+    .section-header h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-top: 0.5rem;
+      color: #fff;
+    }
+
+    .grid-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(56, 189, 248, 0.4);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: #fff;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-service {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+
+    .service-card:hover .btn-service {
+      gap: 0.7rem;
+      color: #7dd3fc;
+    }
+
+    /* ABOUT / DIFFERENTIALS */
+    .about {
+      background: var(--bg-card);
+      border-y: 1px solid var(--border-color);
+      padding: 6rem 1.5rem;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--accent-green);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-text strong {
+      color: #fff;
+      display: block;
+    }
+
+    .feature-text span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* INSTAGRAM SHOWCASE */
+    .insta-box {
+      background: linear-gradient(135deg, rgba(28, 37, 65, 0.8), rgba(42, 58, 94, 0.5));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 3.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .insta-handle {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .grid-testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      color: #f59e0b;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .testimonial-card p {
+      color: #e2e8f0;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .cta-banner h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.95;
+    }
+
+    /* CONTACT & LOCATION */
+    .contact {
+      max-width: 1200px;
+      margin: 6rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 3.5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item strong {
+      color: var(--primary);
+      display: block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-item p, .contact-item a {
+      font-size: 1.05rem;
+      color: #f8fafc;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .float-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--accent-green);
+      color: #fff;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
+      z-index: 9999;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .float-whatsapp:hover {
+      background: var(--accent-green-hover);
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero, .about-container, .contact-card {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        display: none;
+      }
+      .cta-banner h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-badge">JS</div>
+        <div class="logo-text">
+          JS CLIMATIZAÇÃO
+          <span>& Refrigeração</span>
+        </div>
+      </a>
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20JS%20Climatiza%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-header" target="_blank">
+        📲 WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="hero">
+    <div>
+      <div class="location-badge">
+        📍 Atendendo Itapipoca e Região — CE
+      </div>
+      <h1>Climatização & Refrigeração com <span>Dedicação e Cuidado</span></h1>
+      <p>Serviços especializados em instalação, manutenção preventiva, conserto e higienização profunda de ar-condicionado. Atendimento rápido e transparente!</p>
+
+      <div class="hero-actions">
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20meu%20ar-condicionado." class="btn-primary" target="_blank">
+          📲 Solicitar Orçamento no WhatsApp
+        </a>
+        <a href="#servicos" class="btn-secondary">
+          Ver Serviços
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <h3>100%</h3>
+          <p>Dedicação e Cuidado</p>
+        </div>
+        <div class="stat-card">
+          <h3>Rápido</h3>
+          <p>Atendimento em Itapipoca</p>
+        </div>
+        <div class="stat-card">
+          <h3>Garantia</h3>
+          <p>Em Todos os Serviços</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card-preview">
+      <div class="card-quote">
+        "O valor de cada trabalho realizado depende do esforço, da dedicação e do cuidado que você coloca em cada tarefa do dia a dia..."
+      </div>
+      <div class="card-details">
+        <div class="detail-item">
+          <span>⚙️</span>
+          <span><strong>Instalações & Manutenções</strong> padronizadas</span>
+        </div>
+        <div class="detail-item">
+          <span>❄️</span>
+          <span><strong>Higienização Química Profunda</strong> que elimina fungos</span>
+        </div>
+        <div class="detail-item">
+          <span>🏠</span>
+          <span><strong>Atendimento Residencial e Comercial</strong> na região</span>
+        </div>
+        <div class="detail-item">
+          <span>📱</span>
+          <span><strong>Instagram:</strong> @js_climatizacao26</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER BAR -->
+  <div class="ticker">
+    <div class="ticker-wrapper">
+      <span>❄️ Ar-Condicionado Split & Inverter</span>
+      <span>⚙️ Instalação Profissional</span>
+      <span>🛠️ Manutenção & Conserto</span>
+      <span>🧼 Higienização Completa</span>
+      <span>📍 Itapipoca - CE e Cidades Vizinhas</span>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="services">
+    <div class="section-header">
+      <span>O QUE FAZEMOS</span>
+      <h2>Nossos Serviços Especializados</h2>
+    </div>
+
+    <div class="grid-services">
+      <div class="service-card">
+        <div>
+          <div class="service-icon">⚙️</div>
+          <h3>Instalação de Ar-Condicionado</h3>
+          <p>Instalação técnica completa para modelos Split, Inverter, Hi-Wall e comerciais. Garantia de rendimento térmico e economia de energia.</p>
+        </div>
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Instala%C3%A7%C3%A3o%20de%20Ar-Condicionado." class="btn-service" target="_blank">
+          Solicitar Orçamento →
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🛠️</div>
+          <h3>Manutenção & Conserto</h3>
+          <p>Seu ar parou de gelar, está vazando água ou fazendo barulho? Realizamos diagnóstico preciso, carga de gás e troca de peças.</p>
+        </div>
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Preciso%20de%20Manuten%C3%A7%C3%A3o%20%2F%20Conserto%20no%20meu%20equipamento." class="btn-service" target="_blank">
+          Solicitar Orçamento →
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🧼</div>
+          <h3>Limpeza & Higienização</h3>
+          <p>Higienização profunda com produtos bactericidas que eliminam maus odores, ácaros e fungos, melhorando a qualidade do ar da sua família.</p>
+        </div>
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20Limpeza%20e%20Higieniza%C3%A7%C3%A3o." class="btn-service" target="_blank">
+          Solicitar Orçamento →
+        </a>
+      </div>
+
+      <div class="service-card">
+        <div>
+          <div class="service-icon">🧊</div>
+          <h3>Refrigeração em Geral</h3>
+          <p>Atendimento especializado em sistemas de refrigeração residencial e comercial para empresas, escritórios e residências.</p>
+        </div>
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Servi%C3%A7o%20de%20Refrigera%C3%A7%C3%A3o." class="btn-service" target="_blank">
+          Solicitar Orçamento →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS / SOBRE -->
+  <section id="diferenciais" class="about">
+    <div class="about-container">
+      <div class="about-content">
+        <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; font-size: 0.85rem;">POR QUE ESCOLHER A JS</span>
+        <h2>Compromisso com o Seu Conforto</h2>
+        <p>A JS Climatização e Refrigeração nasceu em Itapipoca para oferecer um serviço técnico sério, honesto e com alto padrão de qualidade.</p>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Serviço Técnico de Qualidade</strong>
+              <span>Ferramentas adequadas e materiais de primeira linha em cada serviço.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Atendimento em Itapipoca e Região</strong>
+              <span>Visita técnica ágil no conforto da sua casa ou estabelecimento.</span>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <strong>Orçamento Transparente</strong>
+              <span>Sem surpresas ou custos escondidos. Você sabe exatamente o que será feito.</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Quero%20falar%20diretamente%20com%20o%20t%C3%A9cnico." class="btn-primary" target="_blank">
+          💬 Falar com o Técnico Agora
+        </a>
+      </div>
+
+      <div class="insta-box">
+        <span style="font-size: 2.5rem;">📸</span>
+        <h3 style="font-size: 1.5rem; font-weight: 800;">Acompanhe Nosso Trabalho</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Veja fotos e vídeos das nossas instalações e manutenções diárias no Instagram!</p>
+        <div class="insta-handle">@js_climatizacao26</div>
+        <a href="https://www.instagram.com/js_climatizacao26/" class="btn-secondary" target="_blank">
+          Ver Perfil no Instagram ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVALIAÇÕES -->
+  <section id="avaliacoes" class="testimonials">
+    <div class="section-header">
+      <span>DEPOIMENTOS</span>
+      <h2>O Que Dizem Nossos Clientes</h2>
+    </div>
+
+    <div class="grid-testimonials">
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Excelente profissional! Fez a higienização dos meus dois ar-condicionados aqui em Itapipoca, ficou parecendo novo e gelando super rápido."</p>
+        </div>
+        <div class="testimonial-author">— Cliente Residencial (Itapipoca - CE)</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Atendimento nota 10. Chamamos pelo WhatsApp, ele veio no mesmo dia e resolveu o problema de vazamento no ar da loja."</p>
+        </div>
+        <div class="testimonial-author">— Cliente Comercial (Itapipoca - CE)</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div>
+          <div class="stars">★★★★★</div>
+          <p>"Trabalho muito limpo e caprichado na instalação. Explicou tudo direitinho e o preço foi bem honesto."</p>
+        </div>
+        <div class="testimonial-author">— Cliente de Região Vizinha</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER CTA -->
+  <section class="cta-banner">
+    <h2>Precisa de Ar-Condicionado Gelando Perfeitamente?</h2>
+    <p>Clique no botão abaixo e solicite seu orçamento sem compromisso diretamente pelo WhatsApp.</p>
+    <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20JS%20Climatiza%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="btn-primary" target="_blank" style="padding: 1.2rem 2.5rem; font-size: 1.15rem;">
+      📲 Solicitar Orçamento no WhatsApp: (88) 99303-2048
+    </a>
+  </section>
+
+  <!-- CONTATO & LOCALIZAÇÃO -->
+  <section id="contato" class="contact">
+    <div class="contact-card">
+      <div class="contact-info">
+        <h3>Informações de Contato</h3>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <strong>Atendimento</strong>
+            <p>Itapipoca — Ceará e toda a Região</p>
+          </li>
+          <li class="contact-item">
+            <strong>WhatsApp / Telefone</strong>
+            <p><a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es." target="_blank">(88) 99303-2048</a></p>
+          </li>
+          <li class="contact-item">
+            <strong>Instagram Oficial</strong>
+            <p><a href="https://www.instagram.com/js_climatizacao26/" target="_blank">@js_climatizacao26</a></p>
+          </li>
+        </ul>
+      </div>
+
+      <div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1.5rem; background: rgba(255, 255, 255, 0.02); padding: 2rem; border-radius: 12px; border: 1px solid var(--border-color);">
+        <h4 style="font-size: 1.3rem; color: #fff;">Agende sua Visita Técnica</h4>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Respondemos rapidamente no WhatsApp com todas as informações e disponibilidade de horários.</p>
+        <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Quero%20agendar%20uma%20visita%20t%C3%A9cnica." class="btn-primary" target="_blank">
+          Agendar Visita Técnica
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© JS Climatização e Refrigeração — Todos os direitos reservados. Itapipoca - CE.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/5588993032048?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20JS%20Climatiza%C3%A7%C3%A3o%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." class="float-whatsapp" target="_blank" aria-label="Falar no WhatsApp">
+    <span>💬 WhatsApp</span>
+  </a>
+  
+</body>
+</html>
